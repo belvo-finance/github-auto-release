@@ -20,7 +20,6 @@ def clean_commit_message(full_commit_message, separator):
 
     """
     seperated_commit = full_commit_message.partition(separator)
-    print(seperated_commit)
     if seperated_commit[2]:
         return seperated_commit[2].partition("\n\n")[0]
     else:
@@ -94,6 +93,7 @@ def create_commit_message_dict(commit_objects_list, separator, leading_character
         )
 
     commits_dict = {k: v for k, v in commits_dict.items() if v}
+    click.echo(commits_dict)
 
     return commits_dict
 
