@@ -74,7 +74,7 @@ def auto_release(version, target_commitish):
         )
         click.echo(message + "\n")
 
-        if click.confirm("Do you want to kantinue?"):
+        if click.confirm("Do you want to continue?"):
 
             new_release = github_repo.create_git_release(
                 tag=new_tag,
