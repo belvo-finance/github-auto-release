@@ -84,6 +84,7 @@ def create_commit_message_dict(commit_objects_list, separator, leading_character
             full_commit_message=full_commit_message, separator=separator
         )
         commits_dict[tag].append(commit_message)
+        commits_dict[tag] = list(set(commits_dict[tag]))
 
     contain_migrations = any(v for k, v in commits_dict.items() if k == "Migrations")
     contain_others = any(v for k, v in commits_dict.items() if k != "Migrations")
@@ -98,7 +99,7 @@ def create_commit_message_dict(commit_objects_list, separator, leading_character
 
 
 def create_release_body(
-    repo, latest_tag, target_commitish="master", separator="] ", leading_character="["
+    repo, latest_tag, target_commitish="master", separator="]", leading_character="["
 ):
     """
     Takes in repo, latest tag, and target branch/commit for release, master is default.
