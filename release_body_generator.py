@@ -93,7 +93,6 @@ def create_commit_message_dict(commit_objects_list, separator, leading_character
         )
 
     commits_dict = {k: v for k, v in commits_dict.items() if v}
-    click.echo(commits_dict)
 
     return commits_dict
 
